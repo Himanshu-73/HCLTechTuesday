@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiplication Table</title>
+</head>
+<body style="font-family: Arial; text-align: center; background-color: #f2f2f2; padding: 30px;">
+
+    <h2 style="color: darkblue;">Multiplication Table Generator</h2>
+
+    <label for="num" style="font-size: 18px;">
+        Enter a Number:
+    </label>
+
+    <input type="number" id="num" placeholder="Enter number"
+        style="padding: 8px; margin: 10px; width: 150px;">
+
+    <button onclick="generateTable()"
+        style="padding: 8px 15px; background-color: darkblue; color: white; border: none; cursor: pointer;">
+        Generate Table
+    </button>
+
+    <br><br>
+
+    <table border="1" cellpadding="10"
+        style="margin: auto; border-collapse: collapse; background-color: white; width: 350px;">
+
+        <thead>
+            <tr style="background-color: darkblue; color: white;">
+                <th>Sr. No.</th>
+                <th>Multiplication</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+
+        <tbody id="result"></tbody>
+    </table>
+
+    <script>
+        function generateTable() {
+            let num = document.getElementById("num").value;
+            let output = "";
+
+            if (num === "") {
+                alert("Please enter a number!");
+                return;
+            }
+
+            num = Number(num);
+
+            for (let i = 1; i <= 10; i++) {
+                output += "<tr>";
+                output += "<td style='padding: 8px;'>" + i + "</td>";
+                output += "<td style='padding: 8px;'>" + num + " × " + i + "</td>";
+                output += "<td style='padding: 8px;'>" + (num * i) + "</td>";
+                output += "</tr>";
+            }
+
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+
+</body>
+</html>
